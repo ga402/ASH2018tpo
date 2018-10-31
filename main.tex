@@ -112,21 +112,24 @@
 
 \begin{block}{Introduction}
 
-\paragraph{} Thrombopoietin (TPO) is a haematopoietic growth factor whose primary function is to promote differentiation and maturation of megakaryocytes and their subsequent production of platelets. In patients with ITP
+\paragraph{} Thrombopoietin (TPO) is a haematopoietic growth factor whose primary function is to promote differentiation and maturation of megakaryocytes and their subsequent production of platelets. In ITP, TPO levels are inappropriately low for the platelet count. At present the predominant explanation for this is \emph{sponging} of TPO by platelets that are then rapidly removed from the circulation. In addition to platelets however, megakarocytes are also capable of binding TPO.  As such, it is unclear to what extent the platelet count actually influences the production of TPO. This study aims to clarify this relationship using a bayesian regression model which has demonstrated to have an improved model performance when compared to other, more traditional approaches to regression modelling. 
 
 %The physiological processes that regulate the circulating levels of TPO are widely debated and it would seem that  
 
 %In patients with ITP, TPO levels are inappropriately low. The exact reasons for this are not well understood. The predominant hypothesis is that higher rates of platelet turnover in active ITP leads to increased consumption of TPO through binding to high-affinity receptors on the platelet (and megakaryocyte) membrane (the \emph{sponge theory}). To better understand TPO and platelets in ITP, we measured TPO levels in 67 patients with chronic ITP with a range of platelet counts.  We also measured TPO levels in 5 patients with aplastic anaemia as these patients are thrombocytopenic but lack a direct immune-mediated platelet destruction. We analysed the association between TPO and platelet levels using a Bayesian regression model, which is more accurate with smaller sample sizes than classical Gaussian regression models. We use this approach to infer the probability distribution of TPO over a range of different platelet counts. 
 
-\vspace{20pt}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{fig/Probability_density.pdf}
-\caption{Figure caption}
-\end{figure}
+
+
 
 
 \end{block}
+
+\begin{block}{Study Population}
+
+\end{block}
+
+
 
 %------------------------------------------------
 
@@ -181,10 +184,10 @@
 
 
 
-\begin{block}{Materials}
+%\begin{block}{Materials}
 
 
-\end{block}
+%\end{block}
 
 %----------------------------------------------------------------------------------------
 
@@ -196,10 +199,10 @@
 %	METHODS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Methods}
+%\begin{block}{Methods}
 
 
-\end{block}
+%\end{block}
 
 %----------------------------------------------------------------------------------------
 
@@ -243,13 +246,18 @@
 %	MATHEMATICAL SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Mathematical Section}
-
-
-
+\begin{block}{Methods}
+\paragraph{}Blood samples were collected in duplicate in sodium citrate vacutainer tubes, double spun and stored at -80°C within four hours of collection. TPO levels were measured using quantitative sandwich enzyme immuno-assay technique. We used log-normalised TPO and platelet counts in a bayesian regression model;
+\begin{align}
+    \log(TPO) \thicksim \text{Norm}(\mu, \sigma) \\
+    \mu = \alpha + \beta\times \log(platelet) \\
+    \alpha \thicksim\ \text{Norm}(0.01, 10) \\
+    \beta \thicksim\ \text{Norm}(0.01, 10) \\
+    \sigma \thicksim \text{Uniform}(-1, 1)
+\end{align}
+\paragraph{} We used uninformative priors for the model (\textit{equation 3, 4, 5}) We used gibbs sampling with 100,000 iterations to calculate posterior distributions from which we derived \textit{maximium a posteriori} (MAP) estimates and 90\% Bayesian Confidence intervals (BCI) for a range of platelet counts (1 to 200$x10^9/L$).
 
 \end{block}
-
 %----------------------------------------------------------------------------------------
 
 \end{column} % End of column 2.1
@@ -259,13 +267,18 @@
 %----------------------------------------------------------------------------------------
 %	RESULTS
 %----------------------------------------------------------------------------------------
-
 \begin{block}{Results}
-
 \begin{figure}
-\includegraphics[width=1\linewidth]{fig/Static_diff_itp_only.pdf}
+\includegraphics[width=1\linewidth]{fig/Probability_density.pdf}
 \caption{Figure caption}
 \end{figure}
+
+
+
+%\begin{figure}
+%\includegraphics[width=1\linewidth]{fig/Static_diff_itp_only.pdf}
+%\caption{Figure caption}
+%\end{figure}
 
 \end{block}
 
