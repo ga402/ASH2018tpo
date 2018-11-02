@@ -101,25 +101,25 @@
 %	OBJECTIVES
 %----------------------------------------------------------------------------------------
 
-\begin{alertblock}{Summary}
+%\begin{alertblock}{Summary}
 
-\begin{itemize}
-    \item The aim of this study was to accurately characterise the relationship between TPO and platelet counts in patients with chronic ITP. 
-    \item 57 patients with chronic ITP had a series of TPO measurements taken both on and off treatment over the duration of 6 months. As a comparison 5 patients with Aplastic anaemia were also recruited. 
-    \item A Bayesian regression model was used to determine this relationship as this approach is generally more accurate than traditional methods.
-    \item We demonstrate 
-\end{itemize}
+%\begin{itemize}
+%    \item The aim of this study was to accurately characterise the relationship between TPO and platelet counts in patients with chronic ITP. 
+%    \item A Bayesian regression model was used to determine this relationship as this approach is generally more accurate than traditional methods.
+%    \item We demonstrate a non-linear relationship which flattens off at a platelet of approximately 50$\times 10^9/L$. These findings indicate the effect of platelet count itself is relatively small as it influences the TPO levels only at very low platelet counts. 
+%\end{itemize}
 
 
-\end{alertblock}
+%\end{alertblock}
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Introduction}
+\begin{alertblock}{Background}
 
-\paragraph{} Thrombopoietin (TPO) is a haematopoietic growth factor whose primary function is to promote differentiation and maturation of megakaryocytes and their subsequent production of platelets. In ITP, TPO levels are inappropriately low for the platelet count. At present the predominant explanation for this is \emph{sponging} of TPO by platelets that are then rapidly removed from the circulation. In addition to platelets however, megakarocytes are also capable of binding TPO.  As such, it is unclear to what extent the platelet count actually influences the production of TPO. This study aims to clarify this relationship using a bayesian regression model which has demonstrated to have an improved model performance when compared to other, more traditional approaches to regression modelling. 
+\paragraph{} Thrombopoietin (TPO) is a haematopoietic growth factor whose primary function is to promote differentiation and maturation of megakaryocytes %and their subsequent production of platelets.
+In ITP, TPO levels are inappropriately low for the platelet count. The most popular explanation for that TPO is  \emph{sponged} by platelets which are then removed from the circulation\cite{Kuter:1995jd}. However, megakarocytes are also capable of binding TPO\cite{Sato:1998jd} although in ITP is unclear which has a dominant role in regulating TPO levels. This study aims to clarify this relationship using a bayesian regression model which has demonstrated to have an improved model performance when compared to other, more traditional approaches to regression modelling. 
 
 %The physiological processes that regulate the circulating levels of TPO are widely debated and it would seem that  
 
@@ -130,18 +130,28 @@
 
 
 
-\end{block}
+\end{alertblock}
 
 \begin{block}{Study Population}
 
-\paragraph{} We recruited 57 patients with a diagnosis chronic ITP to our study from our center over the course of 6 months during May to November 2015. Each participant had samples collected in duplicate. For comparison we also measured TPO levels in 5 patients with aplastic anaemia. 
+\paragraph{} We recruited 67 patients with a diagnosis chronic ITP to our study from our center over the course of 6 months during May to November 2015. Each participant had samples collected in duplicate. For comparison we also measured TPO levels in 5 patients with aplastic anaemia. 
 
 
 
 \end{block}
 
-
-
+\begin{block}{Methods}
+\paragraph{}Blood samples were collected in duplicate in sodium citrate vacutainer tubes, double spun and stored at -80°C within four hours of collection. TPO levels were measured using quantitative sandwich enzyme immuno-assay technique.
+\paragraph{} We used log-normalised TPO and platelet counts in a bayesian regression model;
+\begin{align}
+    \log(TPO) \thicksim \text{Norm}(\mu, \sigma) \\
+    \mu = \alpha + \beta\times \log(platelet) \\
+    \alpha \thicksim\ \text{Norm}(0.01, 10) \\
+    \beta \thicksim\ \text{Norm}(0.01, 10) \\
+    \sigma \thicksim \text{Uniform}(-1, 1)
+\end{align}
+\paragraph{} We used uninformative priors for the model (\textit{equation 3, 4, 5}) We used gibbs sampling with 100,000 iterations to calculate posterior distributions from which we derived \textbf{\textit{maximium a posteriori} (MAP)} estimates and 90\% Bayesian Confidence intervals (BCI) for a range of platelet counts (1 to 200$x10^9/L$). The model was compared to linear and polynomial regression models using a \emph{deviance information criterion} (DIC). 
+\end{block}
 %------------------------------------------------
 
 %\begin{figure}
@@ -230,7 +240,7 @@
     {{\includegraphics[width=0.29\linewidth]{fig/AA_vs_ITP_2.pdf}}}%
     \qquad
     {{\includegraphics[width=0.67\linewidth]{fig/bayes_model2.pdf}}}%
-    \caption{2 Figures side by side}%
+    \caption{\textbf{A}: TPO levels in patients with Aplastic anaemia (AA) versus ITP. Signficiant difference between the two patient groups, apart from 3 outliers within the AA group with lower TPO and platelet counts. These patients had recieved tacrolimus therapy. \textbf{B}: log(TPO) levels versus platelet counts with fitter bayesian regression models for ITP and AA patients. \textbf{C}: Shows the same graph as in B, except the a linear regression model is fitted. This gives a visual demonstration of the difference between these two regression methods}%
     \label{fig:example}%
 \end{figure}
 
@@ -257,19 +267,30 @@
 %	MATHEMATICAL SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Methods}
-\paragraph{}Blood samples were collected in duplicate in sodium citrate vacutainer tubes, double spun and stored at -80°C within four hours of collection. TPO levels were measured using quantitative sandwich enzyme immuno-assay technique. We used log-normalised TPO and platelet counts in a bayesian regression model;
-\begin{align}
-    \log(TPO) \thicksim \text{Norm}(\mu, \sigma) \\
-    \mu = \alpha + \beta\times \log(platelet) \\
-    \alpha \thicksim\ \text{Norm}(0.01, 10) \\
-    \beta \thicksim\ \text{Norm}(0.01, 10) \\
-    \sigma \thicksim \text{Uniform}(-1, 1)
-\end{align}
-\paragraph{} We used uninformative priors for the model (\textit{equation 3, 4, 5}) We used gibbs sampling with 100,000 iterations to calculate posterior distributions from which we derived \textit{maximium a posteriori} (MAP) estimates and 90\% Bayesian Confidence intervals (BCI) for a range of platelet counts (1 to 200$x10^9/L$).
+%\begin{block}{Methods...(continued)}
+%\paragraph{} We used log-normalised TPO and platelet counts in a bayesian regression model;
+%\begin{align}
+%    \log(TPO) \thicksim \text{Norm}(\mu, \sigma) \\
+%    \mu = \alpha + \beta\times \log(platelet) \\
+%    \alpha \thicksim\ \text{Norm}(0.01, 10) \\
+%    \beta \thicksim\ \text{Norm}(0.01, 10) \\
+%    \sigma \thicksim \text{Uniform}(-1, 1)
+%\end{align}
+%\paragraph{} We used uninformative priors for the model (\textit{equation 3, 4, 5}) We used gibbs sampling with 100,000 iterations to calculate posterior distributions from which we derived \textbf{\textit{maximium a posteriori} (MAP)} estimates and 90\% Bayesian Confidence intervals (BCI) for a range of platelet counts (1 to 200$x10^9/L$).
+
+%\end{block}
+%----------------------------------------------------------------------------------------
+\begin{block}{Results}
+
+\paragraph{} In total 130 were collected however 30 samples were excluded for failing to detect any TPO. All but 1 of these patients had a second positive sample. In the ITP group, median TPO levels was 43pg/ml (range 1.7 - 923.4pg/ml) with a median platelet count of 63$\times 10^9/L$ (range 3 - 328$\times 10^9/L$). 20\% of this group were in remission at the time of sampling. In the aplastic anaemia cohort there were 9 samples with a median TPO of 1887.6pg/ml (range 9.4-4572.5pg/ml) and a median platelet count of 20$\times 10^9/L$ (range 4 - 102$\times 10^9/L$). The higher platelet counts (\>35$\times 10^9/L$) in this aplastic group were from patients on tacrolimus therapy (n= 3). 
+
+\vspace{30pt}
+
+\paragraph{} The bayesian model used in this study, when fitted to the data, demonstrated a clear non-linear relationship between platelet counts and TPO levels in both ITP and aplastic anaemia patients (\textbf{\emph{FIGURE 1A}}) with the patients with ITP having consistently lower TPO at all predicted platelet counts. The DIC score for the model was significantly lower than for either linear or polynomial models.
 
 \end{block}
-%----------------------------------------------------------------------------------------
+
+
 
 \end{column} % End of column 2.1
 
@@ -278,11 +299,17 @@
 %----------------------------------------------------------------------------------------
 %	RESULTS
 %----------------------------------------------------------------------------------------
-\begin{block}{Results}
-\begin{figure}
-\includegraphics[width=1\linewidth]{fig/Probability_density.pdf}
-\caption{Figure caption}
+\begin{block}{Results...(continued)}
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{fig/Probability_density.pdf}
+\caption{Predicted \textit{maximium a posteriori} (MAP) distributions at various platelet counts ranging from 1 to 90$\times 10^9/L$. This shows that once platelet counts rise above 10$\times 10^9/L$ are largely overlapping and change only a very small amount}
 \end{figure}
+At any given platelet count, MAP TPO estimates in our ITP cohort were approximately a tenth of that for patients with aplastic anaemia. The MAP estimates from the bayseian model can be seen in \textbf{\emph{FIGURE 2}}.
+
+
+% At a platelet count of 1 the MAP TPO estimate in ITP was 410pg/ml (BCI; 200-804pg/ml). This declined sharply to 100pg/ml as platelet counts increased to 10$\times 10^9/L$. The decline in TPO became increasingly shallow as platelet counts increased further, and at 100$\times 10^9/L$ it was 24pg/ml (BCI 18-29 pg/ml). In contrast, MAP TPO estimates in the aplastic anaemia group were >10000pg/ml at a platelet count of $\times 10^9/L$ and 221pg/ml (BIC 112 to 828pg/ml) at 100$\times 10^9/L$. This is approaching the normal range for a healthy individual (mean 120pg/ml, range 80 - 230pg/ml).
+
+
 
 
 
@@ -309,12 +336,21 @@
 %	CONCLUSION
 %----------------------------------------------------------------------------------------
 
+\begin{block}{Results...(continued)}
+\paragraph{} 
+%\paragraph{} When compared to other regression models, the bayesian method had the lowest '\emph{deviance information criterion}' (DIC) score at 253.89 when compared to linear and polynomial models. The DIC score for the linear regression model (figure 1c) was 265.52. 
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{fig/treatment1.pdf}
+\caption{Fitted regression curve from models performed with patients on TPO agonists (Eltrombopag or Romiplostim) and those patients not on therapy at the time of blood sampling}
+\end{figure}
+\end{block}
+\paragraph{} A quarter (25\%, n = 17) of the ITP patients recruited to the study were treated with TPO agonists. When compared to patients not on treatment (n = 40, 60\%) TPO levels were found to higher that in untreated patients at lower platelet counts. The opposite was the case at lower platelet counts (\textbf{\emph{FIGURE 3}}). This could be due to an expanded megakaryocyte population within the bone marrow.
+
+\vspace{30pt}
+
 \begin{block}{Conclusion}
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{fig/treatment1.pdf}
-\caption{Figure caption}
-\end{figure}
+\paragraph{} This study demonstrates a non-linear association between platelet counts and TPO. It shows that in ITP, TPO levels are consistently lower than in aplastic anaemia. Furthermore, it shows that only at platelet counts below 50$\times10^9/L$ do TPO levels start to rise significantly. These findings suggest that platelets have a smaller function in platelet \emph{sponging} than previously presumed. This is corroborated by the fact the TPO agonists actually cause TPO levels to drop, presumably through the expansion of the megakaryocyte pool. 
 
 \end{block}
 
@@ -339,9 +375,9 @@
 
 \begin{block}{References}
 
-\nocite{*} % Insert publications even if they are not cited in the poster
-\small{\bibliographystyle{unsrt}
-\bibliography{sample}\vspace{0.75in}}
+%\nocite{*} % Insert publications even if they are not cited in the poster
+\small{\bibliographystyle{plain}
+\bibliography{sample}\vspace{0.2in}}
 
 \end{block}
 
@@ -351,11 +387,11 @@
 
 \setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
 
-\begin{block}{Acknowledgements}
+%\begin{block}{Acknowledgements}
 
-\small{\rmfamily{This work is entirely of my own}} \\
+%\small{\rmfamily{This work is entirely of my own}} \\
 
-\end{block}
+%\end{block}
 
 %----------------------------------------------------------------------------------------
 %	CONTACT INFORMATION
