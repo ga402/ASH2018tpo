@@ -83,11 +83,11 @@
 %	TITLE SECTION 
 %--------------------------------------------------------------
 
-\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
-\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+\addtobeamertemplate{block end}{}{\vspace*{1ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{1ex}} % White space under highlighted (alert) blocks
 
-\setlength{\belowcaptionskip}{2ex} % White space under figures
-\setlength\belowdisplayshortskip{2ex} % White space under equations
+\setlength{\belowcaptionskip}{1ex} % White space under figures
+\setlength\belowdisplayshortskip{1ex} % White space under equations
 
 \begin{frame}[t] % The whole poster is enclosed in one beamer frame
 
@@ -119,7 +119,7 @@
 \begin{alertblock}{Background}
 
 \paragraph{} Thrombopoietin (TPO) is a growth factor which promotes differentiation and maturation of megakaryocytes and the production of platelets.
-In ITP, TPO levels are inappropriately low. The most popular explanation for this is that TPO is \emph{sponged} by binding to platelets which are then removed from the circulation\cite{Kuterreciprocalrelationshipthrombopoietin1995}. However, megakarocytes are also capable of binding TPO\cite{SatoBindingregulationthrombopoietin1998} and there is evidence to suggest that the low TPO levels in ITP are actually due to an increased megakarocyte mass. This study aims to clarify the relationship between TPO levels and platelet counts in ITP using aplastic anaemia (bone marrow failure) as a comparison. To determine the relationship between TPO and platelet count we use a bayesian regression model which unlike traditional regression models does not use a predetermined algorithm but rather infers probability distributions by iterative resampling of the data. 
+In ITP, TPO levels are inappropriately low. The most popular explanation for this is that TPO is \emph{sponged} by binding to platelets which are then removed from the circulation\cite{Kuterreciprocalrelationshipthrombopoietin1995}. However, megakarocytes are also capable of binding TPO and there is evidence to suggest that the low TPO levels in ITP are actually due to an increased megakarocyte mass\cite{SatoBindingregulationthrombopoietin1998}. This study aims to clarify the relationship between TPO levels and platelet counts in ITP using aplastic anaemia (bone marrow failure) as a comparison. To determine the relationship between TPO and platelet count we use a bayesian regression model which unlike traditional regression models does not use a predetermined algorithm but rather infers probability distributions by iterative resampling of the data\cite{ChaturvediRobustBayesiananalysis1996}. 
 
 %The physiological processes that regulate the circulating levels of TPO are widely debated and it would seem that  
 
@@ -240,7 +240,7 @@ In ITP, TPO levels are inappropriately low. The most popular explanation for thi
     {{\includegraphics[width=0.29\linewidth]{fig/AA_vs_ITP_2.pdf}}}%
     \qquad
     {{\includegraphics[width=0.67\linewidth]{fig/bayes_model2.pdf}}}%
-    \caption{\textbf{Graph A}: TPO levels in patients with Aplastic anaemia (AA) versus ITP. There is a clear difference between the two patient groups, apart from 3 outliers within the AA group which have lower TPO and platelet counts. These patients had recieved tacrolimus therapy and subsequently recovered their platelet counts. \textbf{Graph B}: log(TPO) levels versus platelet counts in ITP (red) and AA (blue). The graph shows the \textit{\textbf{MAP}} estimates \emph{(black lines)} and \textit{\textbf{90\% BIC interval}} (dark grey) as well as \textit{\textbf{total sampling area}} (light grey) for the two bayesian models generated from the data. \textbf{Graph C}: Shows the same graph as in B, except the a linear regression model is fitted. This gives a visual demonstration of the difference between these two regression methods}%
+    \caption{\textbf{A}: TPO levels in patients with Aplastic anaemia (AA) versus ITP. There is a clear difference between the two patient groups, apart from 3 outliers within the AA group which have lower TPO and platelet counts. These patients had recieved tacrolimus therapy and subsequently recovered their platelet counts. \textbf{B}: log(TPO) levels versus platelet counts in ITP (red) and AA (blue). The graph shows the \textit{\textbf{MAP}} estimates \emph{(black lines)} and \textit{\textbf{90\% BIC interval}} (dark grey) as well as \textit{\textbf{total sampling area}} (light grey) for the two bayesian models generated from the data. \textbf{C}: Shows the same graph as in B, except the a linear regression model is fitted. This gives a visual demonstration of the difference between these two regression methods}%
     \label{fig:example}%
 \end{figure}
 
@@ -286,7 +286,7 @@ In ITP, TPO levels are inappropriately low. The most popular explanation for thi
 
 \vspace{30pt}
 
-\paragraph{} The bayesian model used in this study demonstrated a clear non-linear relationship between platelet counts and TPO levels in both ITP and aplastic anaemia (AA) patients (\textbf{\emph{FIGURE 1, Graph B}}). Patients with ITP had consistently lower TPO at all predicted platelet counts when compared to the AA patients. The DIC score for the model was significantly lower than for either linear or polynomial models.
+\paragraph{} The bayesian model used in this study demonstrated a clear non-linear relationship between platelet counts and TPO levels in both ITP and aplastic anaemia (AA) patients (\textbf{\emph{FIGURE 1B}}). Patients with ITP had consistently lower TPO at all predicted platelet counts when compared to the AA patients. The DIC score for the model was significantly lower than for either linear or polynomial models.
 
 \end{block}
 
@@ -352,7 +352,7 @@ At any given platelet count, MAP estimates for TPO in our ITP cohort were approx
 
 \begin{block}{Conclusion}
 
-\paragraph{} This study demonstrates a non-linear association between platelet counts and TPO. It shows that in ITP, TPO levels are consistently lower than in aplastic anaemia. This suggests that irrespective of platelet count, megakarocyte mass is a significant influence on TPO levels. However, as the platelet counts fall below 50$\times10^9/L$, TPO levels start to rise significantly much close association with the platelet count. One explanation for this is that at the \emph{lower platelet counts} the sponging effect of the platelets has a greater influence on TPO levels than at higher platelet counts. In contrast higher platelet counts it is the megakarocyte mass which is the primary determinant of TPO levels. The observation that TPO agonists appear to cause TPO levels to drop at higher platelet counts might be explained by an expansion of the megakaryocyte pool. Why TPO agonists might increase TPO levels at lower platelet counts is not clear and maybe due to 
+\paragraph{} This study demonstrates that in ITP, TPO levels are consistently lower than in aplastic anaemia, irrespective of platelet count. This appears to confirm that megakarocyte mass is a dominant influence on TPO levels. However, as the platelet counts fall below 40-50$\times10^9/L$, TPO levels start to rise with a much closer correlation to the platelet count which suggests that the sponging effect of platelets does influence TPO levels but only at these lower counts. The observation that TPO agonists are associated with lower TPO when platelet counts are high might be explained by an expansion of the megakaryocyte pool. The reason the reverse is true at lower platelet counts is harder to explain but one hypothesis is that TPO agonists \emph{out-compete} natural TPO for MPL-receptors thus causing TPO levels to rise. This hypothesis however would require further confirmatory studies.    
 
 \end{block}
 
