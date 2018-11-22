@@ -121,7 +121,7 @@
 \begin{alertblock}{Background}
 
 \paragraph{} Thrombopoietin (TPO) is a growth factor which promotes differentiation and maturation of megakaryocytes and the production of platelets\cite{NishimuraIL1ainducesthrombopoiesis2015a}.
-In ITP, TPO levels are inappropriately low. The pre-eminent explanation for this is that TPO is \emph{sponged} by binding to platelets which are then removed from the circulation\cite{Kuterreciprocalrelationshipthrombopoietin1995}. TPO also binds megakaryocytes and there is evidence to suggest that the low TPO levels in ITP are in fact due to an expanded megakaryocyte volume\cite{SatoBindingregulationthrombopoietin1998}. This study aims to clarify the relationship between TPO levels and platelet counts in ITP. We use a bayesian regression approach to model the relationship between platelet count and TPO. Unlike traditional regression models this does not use a predetermined algorithm but rather infers probability distributions by iterative re-sampling of the data\cite{ChaturvediRobustBayesiananalysis1996}. 
+In ITP, TPO levels are inappropriately low. The pre-eminent explanation for this is that TPO is \emph{sponged} by binding to platelets which are then removed from the circulation by antibodies\cite{Kuterreciprocalrelationshipthrombopoietin1995}. However, TPO also binds megakaryocytes and it has been suggested that the expanded megakaryocyte volume observed in patients with ITP causes additional sequestration of TPO\cite{SatoBindingregulationthrombopoietin1998}. This study aims to clarify the relationship between TPO levels and the platelet count in ITP. We use a bayesian regression method to model the relationship between platelet counts and TPO. Unlike traditional regression models this does not use a predetermined algorithm but rather infers probability distributions by iterative re-sampling of the data\cite{ChaturvediRobustBayesiananalysis1996}. 
 
 %The physiological processes that regulate the circulating levels of TPO are widely debated and it would seem that  
 
@@ -156,7 +156,7 @@ In ITP, TPO levels are inappropriately low. The pre-eminent explanation for this
 \end{block}
 
 \begin{block}{Results}
-\paragraph{} In total 130 blood samples were collected from the 72 patients. 30 of the samples were excluded for failing to detect any TPO. All but 1 of these samples were from patients who had a second positive sample. In the ITP group, median TPO levels was 43pg/ml (range 1.7 - 923.4pg/ml) with a median platelet count of 63$\times 10^9/L$ (range 3 - 328$\times 10^9/L$). 20\% of this group were in remission at the time of sampling (platelet count >100$\times 10^9/L$) .
+\paragraph{} In total 130 blood samples were collected from the 72 patients. 30 of the samples were excluded for failing to detect any TPO. All but 1 of these samples were from patients who had a second positive sample. In the ITP group, median TPO levels was 43pg/ml (range 1.7 - 923.4pg/ml) with a median platelet count of 63$\times 10^9/L$ (range 3 - 328$\times 10^9/L$). 
 \end{block}
 
 %------------------------------------------------
@@ -291,14 +291,18 @@ In ITP, TPO levels are inappropriately low. The pre-eminent explanation for this
 
 \begin{figure}[H]
 \includegraphics[width=1\linewidth]{fig/Probability_density.pdf}
-\caption{Predicted \textit{maximium a posteriori} (MAP) distributions at various platelet counts ranging from 1 to 90$\times 10^9/L$. This shows that once platelet counts rise above 10$\times 10^9/L$ the probability distributions of TPO increasingly overlap}
+\caption{Predicted \textit{maximium a posteriori} (MAP) distributions at platelet counts ranging from 1 to 90$\times 10^9/L$. This shows that once platelet counts rise above 10$\times 10^9/L$ the probability distributions of TPO increasingly overlap}
 \end{figure}
+
+\paragraph{}20\% of the ITP group were in remission at the time of sampling (platelet count >100$\times 10^9/L$).
+
+\vspace{30pt}
 
 \paragraph{} In the aplastic anaemia cohort there were 9 samples in total with a median TPO of 1887.6pg/ml (range 9.4-4572.5pg/ml) and a median platelet count of 20$\times 10^9/L$ (range 4 - 102$\times 10^9/L$). The higher platelet counts (\>35$\times 10^9/L$) in this aplastic group were from patients on tacrolimus therapy (n= 3) (\textit{\textbf{FIGURE 1A}}). 
 
 \vspace{30pt}
 
-\paragraph{} The bayesian model used in this study identified a non-linear relationship between platelet counts and TPO levels in both ITP and aplastic anaemia (AA) patients (\textbf{\emph{FIGURE 1B}}), with consistently lower TPO levels in ITP. 
+\paragraph{} The bayesian model used in this study shows a non-linear relationship between platelet counts and TPO levels in both ITP and aplastic anaemia (AA) patients (\textbf{\emph{FIGURE 1B}}), with consistently lower TPO levels in ITP. 
 
 \end{block}
 
@@ -365,7 +369,7 @@ At any given platelet count, MAP estimates for TPO in our ITP cohort were approx
 
 \begin{block}{Conclusion}
 
-\paragraph{} This study demonstrates that TPO levels in ITP are consistently lower than aplastic anaemia, irrespective of platelet count. This finding is consistent with megakaryocyte mass having a dominant influence on TPO levels. However the study also shows the relationship between platelet counts and TPO is non-linear which implies the influence of additional factors. In this case, platelet count \emph{does} appears to be influence circulating TPO levels but only when the platelet count falls below 40-50$\times10^9/L$. The cross-over of model estimates observed in \textbf{\emph{FIGURE 4}} also implies that TPO agonists impact natural TPO levels in a complex manner. One explanation could be that TPO agonists both expand the megakaryocyte pool causing greater TPO sponging but also compete with natural TPO for the MPL-receptor resulting in a small relative increase in circulating TPO. The impact of these different processes might vary as platelet counts vary. 
+\paragraph{} This study demonstrates that TPO levels in ITP are consistently lower than aplastic anaemia, irrespective of platelet count. This finding is consistent with megakaryocyte mass having a dominant influence on TPO levels. However the study also shows the relationship between platelet counts and TPO is non-linear which implies the effect of additional factors. In this case, platelet count \emph{does} appears to influence circulating TPO levels but only when the platelet count falls below 40-50$\times10^9/L$. The cross-over of model estimates observed in \textbf{\emph{FIGURE 4}} also suggests that TPO agonists alter natural TPO levels in a non-linear manner. One explanation could be that TPO agonists both expand the megakaryocyte pool causing greater TPO sponging but also compete with natural TPO for the MPL-receptor resulting in a small relative increase in circulating TPO. The impact of these different processes might vary as platelet counts change. 
 
 \end{block}
 
